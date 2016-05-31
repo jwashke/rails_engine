@@ -1,6 +1,16 @@
 require 'csv'
 
 namespace :import_csv do
+  task all: [
+    :customers,
+    :merchants,
+    :invoices,
+    :items,
+    :transactions,
+    :invoice_items
+  ]
+
+
   task customers: :environment do
     contents = CSV.open "db/data/customers.csv", headers: true
     contents.each do |customer|
@@ -38,6 +48,14 @@ namespace :import_csv do
     items.each do |item|
       item = Item.create!(item.to_h)
       puts "created item #{item.id}"
+    end
+  end
+
+  task invoice_items: :environment do
+    invoice_items = CSV.open "db/data/invoice_items.csv", headers: true
+    invoice_items.each do |invoice_item|
+      invoice_item = InvoiceItem.create!(invoice_item.to_h)
+      puts "created invoice item #{invoice_item.id}"
     end
   end
 end
