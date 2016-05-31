@@ -24,4 +24,20 @@ namespace :import_csv do
       puts "created invoice #{invoice.id}"
     end
   end
+
+  task transactions: :environment do
+    contents = CSV.open "db/data/transactions.csv", headers: true
+    contents.each do |transaction|
+      transaction = Transaction.create!(transaction.to_h)
+      puts "created transaction #{transaction.id}"
+    end
+  end
+
+  task items: :environment do
+    items = CSV.open "db/data/items.csv", headers: true
+    items.each do |item|
+      item = Item.create!(item.to_h)
+      puts "created item #{item.id}"
+    end
+  end
 end
