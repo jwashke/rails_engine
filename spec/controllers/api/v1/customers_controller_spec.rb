@@ -3,13 +3,13 @@ require "rails_helper"
 RSpec.describe Api::V1::CustomersController, type: :controller do
   describe "GET #index" do
     it "returns all customers" do
-      customers = create_list(:customer, 2)
+      create_list(:customer, 2)
       get :index, format: :json
       parsed_json = JSON.parse(response.body)
 
       expect(response.status).to eq(200)
       expect(parsed_json.count).to eq(2)
-      expect(parsed_json.first.has_key?("first_name")).to be true
+      expect(parsed_json.first.key?("first_name")).to be true
     end
   end
 

@@ -6,6 +6,8 @@ RSpec.describe Customer, type: :model do
     it { is_expected.to validate_presence_of(:last_name) }
   end
 
+      # let(:customer) { create(:customer, :first_name: "Josh") }
+
   describe ".find_one_by" do
     it "can find a record by first name" do
       customer = create(:customer)
