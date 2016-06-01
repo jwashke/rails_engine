@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  # GET /api/v1/merchants.json
-
-  namespace :api, default: { format: :json } do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
       namespace :customers do
         get "/find", to: "find#show"
