@@ -7,20 +7,18 @@ class Invoice < ActiveRecord::Base
   belongs_to :merchant
 
   def self.find_one_by(params)
-    key = params.keys.first
-    value = params.values.first
-    if key.downcase == "status"
-      where("lower(#{key}) = lower(?)", value).limit(1)
+    if string_params?(params)
+      key = params.keys.first
+      where("lower(#{key}) = lower(?)", params[key]).limit(1)
     else
-      where(params)
+      where(params).limit(1)
     end
   end
 
   def self.find_all_by(params)
-    key = params.keys.first
-    value = params.values.first
-    if key.downcase == "status"
-      where("lower(#{key}) = lower(?)", value)
+    if string_params?(params)
+      key = params.keys.first
+      where("lower(#{key}) = lower(?)", params[key])
     else
       where(params)
     end
@@ -28,5 +26,11 @@ class Invoice < ActiveRecord::Base
 
   def self.random
     limit(1).order("RANDOM()")
+  end
+
+  private_class_method
+
+  def self.string_params?(params)
+    params[:status]
   end
 end
