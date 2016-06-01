@@ -1,1 +1,3 @@
-class Api::ApiController < ApplicationController; end
+class Api::ApiController < ApplicationController
+  respond_to :json
+end
