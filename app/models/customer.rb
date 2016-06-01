@@ -24,7 +24,7 @@ class Customer < ActiveRecord::Base
     limit(1).order("RANDOM()")
   end
 
-  private
+  private_class_method
 
   def self.string_params?(params)
     params[:first_name] || params[:last_name]

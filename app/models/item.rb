@@ -28,7 +28,7 @@ class Item < ActiveRecord::Base
     limit(1).order("RANDOM()")
   end
 
-  private
+  private_class_method
 
   def self.string_params?(params)
     params[:name] || params[:description]
