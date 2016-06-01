@@ -13,12 +13,3 @@ class Api::V1::Invoices::FindController < Api::ApiController
     params.permit(:customer_id, :merchant_id, :status, :created_at, :updated_at)
   end
 end
-
-
-
-
-# t.integer  "customer_id"
-# t.integer  "merchant_id"
-# t.string   "status"
-# t.datetime "created_at",  null: false
-# t.datetime "updated_at",  null: false
