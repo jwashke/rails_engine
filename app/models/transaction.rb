@@ -6,7 +6,7 @@ class Transaction < ActiveRecord::Base
   belongs_to :invoice
 
   def self.find_one_by(params)
-    where(params).limit(1)
+    where(params).limit(1).first
   end
 
   def self.find_all_by(params)

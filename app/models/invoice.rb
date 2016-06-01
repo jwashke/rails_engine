@@ -5,9 +5,12 @@ class Invoice < ActiveRecord::Base
 
   belongs_to :customer
   belongs_to :merchant
+  has_many :transactions
+  has_many :invoice_items
+  has_many :items, through: :invoice_items
 
   def self.find_one_by(params)
-    where(params).limit(1)
+    where(params).limit(1).first
   end
 
   def self.find_all_by(params)
@@ -16,6 +19,10 @@ class Invoice < ActiveRecord::Base
 
   def self.random
     limit(1).order("RANDOM()")
+  end
+
+  def self.paid_in_full
+    joins(:transactions).where(transactions: { result: "success" })
   end
 
   private_class_method
