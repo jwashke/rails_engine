@@ -57,7 +57,8 @@ class Merchant < ActiveRecord::Base
   end
 
   def customers_with_pending_invoices
-    invoices.pending.joins(:customer).uniq
+    ids = invoices.pending.pluck(:customer_id)
+    Customer.find(ids)
   end
 
   private_class_method
