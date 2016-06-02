@@ -67,16 +67,18 @@ class Merchant < ActiveRecord::Base
   end
 
   def revenue_for(date)
-    invoices.paid_in_full
-      .where(created_at: date)
-      .joins(:invoice_items)
-      .sum("invoice_items.quantity * invoice_items.unit_price")
+    invoices
+    .paid_in_full
+    .where(created_at: date)
+    .joins(:invoice_items)
+    .sum("invoice_items.quantity * invoice_items.unit_price")
   end
 
   def revenue
-    invoices.paid_in_full
-      .joins(:invoice_items)
-      .sum("invoice_items.quantity * invoice_items.unit_price")
+    invoices
+    .paid_in_full
+    .joins(:invoice_items)
+    .sum("invoice_items.quantity * invoice_items.unit_price")
   end
 
 end
