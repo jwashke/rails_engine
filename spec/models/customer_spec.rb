@@ -121,4 +121,20 @@ RSpec.describe Customer, type: :model do
       expect(result).not_to be_truthy
     end
   end
+
+  describe "#favorite_merchant" do
+    it "returns the merchant where the customer has the most items bought" do
+      customer1 = create(:customer)
+      merchant1 = create(:merchant)
+      merchant2 = create(:merchant)
+      invoice1 = create(:invoice, customer: customer1, merchant: merchant1)
+      invoice2 = create(:invoice, customer: customer1, merchant: merchant2)
+      invoice1.transactions = [create(:transaction)]
+      invoice2.transactions = [create(:transaction), create(:transaction)]
+
+      merchant = customer1.favorite_merchant
+
+      expect(merchant).to eq(merchant2)
+    end
+  end
 end

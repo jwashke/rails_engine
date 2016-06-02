@@ -26,14 +26,6 @@ class Customer < ActiveRecord::Base
       .first
   end
 
-  def self.ranked_by_items_sold(quantity)
-    merchants.joins(:transactions, :invoice_items)
-      .where(transactions: { result: 'success' })
-      .group(:id)
-      .order('SUM(invoice_items.quantity) DESC')
-      .first(quantity)
-  end
-
   private_class_method
 
   def self.string_params?(params)

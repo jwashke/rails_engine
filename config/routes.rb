@@ -10,6 +10,8 @@ Rails.application.routes.draw do
         get "/:id/favorite_merchant", to: "favorite_merchant#show"
       end
       resources :customers, only: [:index, :show]
+      #collection do
+      # member do
 
       namespace :merchants do
         get "/find", to: "find#show"
