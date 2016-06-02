@@ -119,4 +119,24 @@ RSpec.describe Invoice, type: :model do
       expect(result).not_to be_truthy
     end
   end
+
+  describe ".paid_in_full" do
+    it "returns invoices with successfull transactions" do
+      invoice = create(:invoice)
+      invoice.transactions = [create(:transaction, result: "success")]
+
+      found_invoice = Invoice.paid_in_full.first
+      expect(found_invoice).to eq(invoice)
+    end
+  end
+
+  describe ".pending" do
+    it "returns invoices that have failed transactions" do
+      invoice = create(:invoice)
+      invoice.transactions = [create(:transaction, result: "failed")]
+
+      found_invoice = Invoice.pending.first
+      expect(found_invoice).to eq(invoice)
+    end
+  end
 end

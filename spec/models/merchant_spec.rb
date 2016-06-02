@@ -98,4 +98,72 @@ RSpec.describe Merchant, type: :model do
       expect(result).not_to be_truthy
     end
   end
+
+  describe ".ranked_by_revenue" do
+    it "returns merchants ranked by total revenue limited by quantity" do
+      merchant1 = create(:merchant)
+      merchant2 = create(:merchant)
+      customer = create(:customer)
+      invoice1 = create(:invoice, customer: customer, merchant: merchant1)
+      invoice2 = create(:invoice, customer: customer, merchant: merchant1)
+      invoice3 = create(:invoice, customer: customer, merchant: merchant2)
+
+      invoice1.transactions << create(:transaction)
+      invoice2.transactions << create(:transaction)
+      invoice3.transactions << create(:transaction)
+      invoice1.invoice_items << create(:invoice_item)
+      invoice2.invoice_items << create(:invoice_item)
+      invoice3.invoice_items << create(:invoice_item)
+
+      found_merchant = Merchant.ranked_by_revenue(1).first
+
+      expect(found_merchant).to eq(merchant1)
+    end
+  end
+
+  describe ".ranked_by_items_sold" do
+    it "returns merchants ranked by items sold limited by quantity" do
+      merchant1 = create(:merchant)
+      merchant2 = create(:merchant)
+      customer = create(:customer)
+      invoice1 = create(:invoice, customer: customer, merchant: merchant1)
+      invoice2 = create(:invoice, customer: customer, merchant: merchant1)
+      invoice3 = create(:invoice, customer: customer, merchant: merchant2)
+
+      invoice1.transactions << create(:transaction)
+      invoice2.transactions << create(:transaction)
+      invoice3.transactions << create(:transaction)
+      invoice1.invoice_items << create(:invoice_item)
+      invoice2.invoice_items << create(:invoice_item)
+      invoice3.invoice_items << create(:invoice_item)
+
+      found_merchant = Merchant.ranked_by_items_sold(1).first
+
+      expect(found_merchant).to eq(merchant1)
+    end
+  end
+
+  describe ".revenue_by_date" do
+    it "returns revenue for a given date" do
+      invoice = create(:invoice, created_at: "2012-03-16 11:55:05")
+      invoice.invoice_items << create(:invoice_item, unit_price: 100, quantity: 1)
+      invoice.transactions << create(:transaction, result: "success")
+      found_revenue = Merchant.revenue_by_date("2012-03-16 11:55:05")
+
+      expect(found_revenue["total_revenue"]).to eq("1.0")
+    end
+  end
+
+  describe "#total_revenue" do
+    it "returns the total revenue for a merchant" do
+      merchant = create(:merchant)
+      invoice = create(:invoice, merchant: merchant)
+      invoice.transactions << create(:transaction)
+      invoice.invoice_items << create(:invoice_item, unit_price: 100, quantity: 1)
+
+      found_revenue = merchant.total_revenue({})
+
+      expect(found_revenue["revenue"]).to eq("1.0")
+    end
+  end
 end

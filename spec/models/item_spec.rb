@@ -125,4 +125,61 @@ RSpec.describe Item, type: :model do
       expect(result).not_to be_truthy
     end
   end
+
+  describe ".ranked_by_revenue" do
+    it "returns items ranked by revenue limited by a given quantity" do
+      customer  = create(:customer)
+      item1     = create(:item)
+      item2     = create(:item)
+      invoice1  = create(:invoice, customer: customer)
+      invoice2  = create(:invoice, customer: customer)
+      invoice3  = create(:invoice, customer: customer)
+
+      invoice1.transactions << create(:transaction)
+      invoice2.transactions << create(:transaction)
+      invoice3.transactions << create(:transaction)
+      invoice1.invoice_items << create(:invoice_item, item: item1)
+      invoice2.invoice_items << create(:invoice_item, item: item1)
+      invoice3.invoice_items << create(:invoice_item, item: item2)
+
+      found_item = Item.ranked_by_revenue(1).first
+
+      expect(found_item).to eq(item1)
+    end
+  end
+
+  describe ".ranked_by_items_sold" do
+    it "returns items ranked by number sold limited by a given quantity" do
+      customer = create(:customer)
+      item1     = create(:item)
+      item2     = create(:item)
+      invoice1 = create(:invoice, customer: customer)
+      invoice2 = create(:invoice, customer: customer)
+      invoice3 = create(:invoice, customer: customer)
+
+      invoice1.transactions << create(:transaction)
+      invoice2.transactions << create(:transaction)
+      invoice3.transactions << create(:transaction)
+      invoice1.invoice_items << create(:invoice_item, item: item1)
+      invoice2.invoice_items << create(:invoice_item, item: item1)
+      invoice3.invoice_items << create(:invoice_item, item: item2)
+
+      found_item = Item.ranked_by_items_sold(1).first
+
+      expect(found_item).to eq(item1)
+    end
+  end
+
+  describe "#best_day" do
+    it "returns the date with the most sales for a single item" do
+      item    = create(:item)
+      invoice = create(:invoice)
+      invoice.transactions << create(:transaction, result: "success")
+      create(:invoice_item, item: item, invoice: invoice, quantity: 2 )
+
+      found_date = item.best_day
+
+      expect(found_date.created_at).to eq(invoice.created_at)
+    end
+  end
 end

@@ -122,4 +122,13 @@ RSpec.describe InvoiceItem, type: :model do
       expect(found_invoice_item.first.class).to eq(InvoiceItem)
     end
   end
+
+  describe ".sanitize_unit_price" do
+    it "changes a string decimal unit price to integer" do
+      params = { unit_price: "100.00" }
+      sanitized_price = InvoiceItem.sanitize_unit_price(params)
+
+      expect(sanitized_price).to eq(10000)
+    end
+  end
 end

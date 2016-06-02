@@ -283,15 +283,7 @@
         null,
         null,
         null,
-        0,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        0,
+        2,
         null,
         null,
         1,
@@ -326,7 +318,7 @@
         null,
         null,
         1,
-        4,
+        5,
         null,
         null
       ],
@@ -355,11 +347,11 @@
         null,
         null,
         1,
-        0,
+        6,
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
@@ -398,7 +390,7 @@
         null,
         null,
         null,
-        0,
+        2,
         null,
         null,
         1,
@@ -406,14 +398,15 @@
         null,
         null,
         null,
-        0,
+        2,
         null,
         null,
         1,
         null,
         null,
         null,
-        0,
+        null,
+        2,
         null,
         null,
         1,
@@ -454,7 +447,7 @@
         null,
         null,
         null,
-        0,
+        2,
         null,
         null,
         1,
@@ -462,20 +455,21 @@
         null,
         null,
         null,
-        0,
+        2,
         null,
         null,
         1,
-        0,
+        2,
         null,
         null,
         null,
-        0,
+        null,
+        2,
         null,
         null,
         1,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         1,
@@ -506,7 +500,7 @@
         1,
         null,
         null,
-        0,
+        1,
         null,
         null,
         null
@@ -564,7 +558,7 @@
         1,
         null,
         1,
-        7,
+        9,
         null,
         null,
         null,
@@ -590,12 +584,63 @@
         null
       ],
       "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/customers/favorite_merchant_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/items/dates_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Josh/turing/projects/rails_engine/app/serializers/best_day_serializer.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/items/most_revenues_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/items/most_items_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/merchants/most_revenues_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/merchants/most_items_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/merchants/total_revenues_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
       ],
       "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/customers/invoices_controller.rb": [
         0,
@@ -660,13 +705,6 @@
         0,
         0
       ],
-      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/items/dates_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
       "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/items/invoice_items_controller.rb": [
         0,
         0,
@@ -675,20 +713,6 @@
         0
       ],
       "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/items/merchants_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/items/most_items_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/items/most_revenues_controller.rb": [
         0,
         0,
         0,
@@ -723,27 +747,6 @@
         0,
         0
       ],
-      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/merchants/most_items_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/merchants/most_revenues_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/merchants/total_revenues_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
       "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/merchants/transaction_revenue_controller.rb": [
         0,
         0,
@@ -764,17 +767,8 @@
         0,
         0,
         0
-      ],
-      "/Users/Josh/turing/projects/rails_engine/app/serializers/best_day_serializer.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1464883927
+    "timestamp": 1464899010
   }
 }
