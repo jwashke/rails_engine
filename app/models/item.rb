@@ -24,22 +24,24 @@ class Item < ActiveRecord::Base
 
   def self.ranked_by_revenue(quantity)
     joins(:invoice_items)
-    .group('items.id')
-    .order('SUM(invoice_items.unit_price * invoice_items.quantity) DESC')
-    .limit(quantity)
+      .group(:id)
+      .order('SUM(invoice_items.unit_price * invoice_items.quantity) DESC')
+      .limit(quantity)
   end
 
   def self.ranked_by_items_sold(quantity)
-    select("items.*, sum(quantity) as number_sold")
-        .joins(invoices: :transactions)
-        .where(transactions: {result: "success"})
-        .group("items.id")
-        .order("number_sold DESC")
-        .limit(quantity)
+    joins(invoices: :transactions)
+      .where(transactions: {result: "success"})
+      .group(:id)
+      .order("sum(quantity) DESC")
+      .limit(quantity)
   end
 
   def best_day
-    invoices.paid_in_full.select("invoices.created_at, sum(invoice_items.quantity) as items_sold").group("invoices.created_at").order("items_sold DESC").first
+    invoices.paid_in_full
+      .select("invoices.created_at")
+      .group("invoices.created_at")
+      .order("sum(invoice_items.quantity) DESC").first
   end
 
   private_class_method

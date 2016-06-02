@@ -3,6 +3,7 @@ class Customer < ActiveRecord::Base
   validates :last_name, presence: true
 
   has_many :invoices
+  has_many :merchants, through: :invoices
   has_many :transactions, through: :invoices
 
   def self.find_one_by(params)
@@ -15,6 +16,22 @@ class Customer < ActiveRecord::Base
 
   def self.random
     limit(1).order("RANDOM()")
+  end
+
+  def favorite_merchant
+    merchants.joins(:transactions)
+      .where(transactions: { result: "success" })
+      .group(:id)
+      .order("count(invoices.merchant_id) DESC")
+      .first
+  end
+
+  def self.ranked_by_items_sold(quantity)
+    merchants.joins(:transactions, :invoice_items)
+      .where(transactions: { result: 'success' })
+      .group(:id)
+      .order('SUM(invoice_items.quantity) DESC')
+      .first(quantity)
   end
 
   private_class_method

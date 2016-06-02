@@ -25,6 +25,10 @@ class Invoice < ActiveRecord::Base
     joins(:transactions).where(transactions: { result: "success" })
   end
 
+  def self.pending
+    joins(:transactions).where(transactions: { result: "failed" })
+  end
+
   private_class_method
 
   def self.string_params?(params)
