@@ -14,35 +14,35 @@ RSpec.describe Transaction, type: :model do
   describe ".find_one_by" do
     it "can find a record by invoice id" do
       transaction = create(:transaction)
-      found_transaction = Transaction.find_one_by(invoice_id: transaction.invoice_id).first
+      found_transaction = Transaction.find_one_by(invoice_id: transaction.invoice_id)
 
       expect(found_transaction).to eq(transaction)
     end
 
     it "can find a record by credit card number" do
       transaction = create(:transaction)
-      found_transaction = Transaction.find_one_by(credit_card_number: transaction.credit_card_number).first
+      found_transaction = Transaction.find_one_by(credit_card_number: transaction.credit_card_number)
 
       expect(found_transaction).to eq(transaction)
     end
 
     it "can find a record by result" do
       transaction = create(:transaction)
-      found_transaction = Transaction.find_one_by(result: transaction.result).first
+      found_transaction = Transaction.find_one_by(result: transaction.result)
 
       expect(found_transaction).to eq(transaction)
     end
 
     it "can find a record by created at" do
       transaction = create(:transaction)
-      found_transaction = Transaction.find_one_by(created_at: transaction.created_at).first
+      found_transaction = Transaction.find_one_by(created_at: transaction.created_at)
 
       expect(found_transaction).to eq(transaction)
     end
 
     it "can find a record by updated at" do
       transaction = create(:transaction)
-      found_transaction = Transaction.find_one_by(updated_at: transaction.updated_at).first
+      found_transaction = Transaction.find_one_by(updated_at: transaction.updated_at)
 
       expect(found_transaction).to eq(transaction)
     end

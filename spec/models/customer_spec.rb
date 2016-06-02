@@ -11,42 +11,42 @@ RSpec.describe Customer, type: :model do
   describe ".find_one_by" do
     it "can find a record by first name" do
       customer = create(:customer)
-      found_customer = Customer.find_one_by(first_name: customer.first_name).first
+      found_customer = Customer.find_one_by(first_name: customer.first_name)
 
       expect(found_customer).to eq(customer)
     end
 
     it "can find by first name case insensitive" do
       customer = create(:customer)
-      found_customer = Customer.find_one_by(first_name: customer.first_name.upcase).first
+      found_customer = Customer.find_one_by(first_name: customer.first_name.upcase)
 
       expect(found_customer).to eq(customer)
     end
 
     it "can find a record by last name" do
       customer = create(:customer)
-      found_customer = Customer.find_one_by(last_name: customer.last_name).first
+      found_customer = Customer.find_one_by(last_name: customer.last_name)
 
       expect(found_customer).to eq(customer)
     end
 
     it "can find by last name case insensitive" do
       customer = create(:customer)
-      found_customer = Customer.find_one_by(last_name: customer.last_name.upcase).first
+      found_customer = Customer.find_one_by(last_name: customer.last_name.upcase)
 
       expect(found_customer).to eq(customer)
     end
 
     it "can find by created at" do
       customer = create(:customer)
-      found_customer = Customer.find_one_by(created_at: customer.created_at).first
+      found_customer = Customer.find_one_by(created_at: customer.created_at)
 
       expect(found_customer).to eq(customer)
     end
 
     it "can find by updated at" do
       customer = create(:customer)
-      found_customer = Customer.find_one_by(updated_at: customer.updated_at).first
+      found_customer = Customer.find_one_by(updated_at: customer.updated_at)
 
       expect(found_customer).to eq(customer)
     end

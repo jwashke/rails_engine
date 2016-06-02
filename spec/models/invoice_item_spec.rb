@@ -16,42 +16,42 @@ RSpec.describe InvoiceItem, type: :model do
   describe ".find_one_by" do
     it "can find a record by item id" do
       invoice_item = create(:invoice_item)
-      found_invoice_item = InvoiceItem.find_one_by(item_id: invoice_item.item_id).first
+      found_invoice_item = InvoiceItem.find_one_by(item_id: invoice_item.item_id)
 
       expect(found_invoice_item).to eq(invoice_item)
     end
 
     it "can find a record by invoice id" do
       invoice_item = create(:invoice_item)
-      found_invoice_item = InvoiceItem.find_one_by(invoice_id: invoice_item.invoice_id).first
+      found_invoice_item = InvoiceItem.find_one_by(invoice_id: invoice_item.invoice_id)
 
       expect(found_invoice_item).to eq(invoice_item)
     end
 
     it "can find a record by quantity" do
       invoice_item = create(:invoice_item)
-      found_invoice_item = InvoiceItem.find_one_by(quantity: invoice_item.quantity).first
+      found_invoice_item = InvoiceItem.find_one_by(quantity: invoice_item.quantity)
 
       expect(found_invoice_item).to eq(invoice_item)
     end
 
     it "can find a record by unit price" do
-      invoice_item = create(:invoice_item)
-      found_invoice_item = InvoiceItem.find_one_by(unit_price: invoice_item.unit_price).first
+      invoice_item = create(:invoice_item, unit_price: 100)
+      found_invoice_item = InvoiceItem.find_one_by(unit_price: "1.00")
 
       expect(found_invoice_item).to eq(invoice_item)
     end
 
     it "can find a record by created at" do
       invoice_item = create(:invoice_item)
-      found_invoice_item = InvoiceItem.find_one_by(created_at: invoice_item.created_at).first
+      found_invoice_item = InvoiceItem.find_one_by(created_at: invoice_item.created_at)
 
       expect(found_invoice_item).to eq(invoice_item)
     end
 
     it "can find a record by updated at" do
       invoice_item = create(:invoice_item)
-      found_invoice_item = InvoiceItem.find_one_by(updated_at: invoice_item.updated_at).first
+      found_invoice_item = InvoiceItem.find_one_by(updated_at: invoice_item.updated_at)
 
       expect(found_invoice_item).to eq(invoice_item)
     end
@@ -86,9 +86,9 @@ RSpec.describe InvoiceItem, type: :model do
     end
 
     it "can find a record by unit price" do
-      invoice_item_one = create(:invoice_item)
-      invoice_item_two = create(:invoice_item, unit_price: invoice_item_one.unit_price)
-      found_invoice_items = InvoiceItem.find_all_by(unit_price: invoice_item_one.unit_price)
+      invoice_item_one = create(:invoice_item, unit_price: 100)
+      invoice_item_two = create(:invoice_item, unit_price: 100)
+      found_invoice_items = InvoiceItem.find_all_by(unit_price: "1.00")
 
       expect(found_invoice_items).to include(invoice_item_one)
       expect(found_invoice_items).to include(invoice_item_two)

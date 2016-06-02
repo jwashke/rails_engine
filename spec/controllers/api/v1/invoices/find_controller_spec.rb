@@ -9,7 +9,7 @@ RSpec.describe Api::V1::Invoices::FindController, type: :controller do
 
       expect(response.status).to eq(200)
       expect(parsed_json.count).to eq(2)
-      expect(parsed_json.first.has_key?("status")).to be true
+      expect(parsed_json.first.key?("status")).to be true
     end
   end
 
@@ -20,7 +20,7 @@ RSpec.describe Api::V1::Invoices::FindController, type: :controller do
       parsed_json = JSON.parse(response.body)
 
       expect(response.status).to eq(200)
-      expect(parsed_json.first.has_key?("status")).to be true
+      expect(parsed_json.key?("status")).to be true
     end
   end
 end

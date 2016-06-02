@@ -283,12 +283,10 @@
         null,
         null,
         null,
-        null,
         0,
         null,
         null,
         1,
-        null,
         null,
         null,
         null,
@@ -408,11 +406,13 @@
         null,
         null,
         null,
-        null,
         0,
         null,
         null,
         1,
+        null,
+        null,
+        null,
         0,
         null,
         null,
@@ -462,7 +462,6 @@
         null,
         null,
         null,
-        null,
         0,
         null,
         null,
@@ -477,16 +476,6 @@
         1,
         0,
         0,
-        null,
-        null,
-        null,
-        0,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
         null,
         null,
         1,
@@ -505,6 +494,20 @@
         null,
         1,
         2,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        0,
+        null,
         null,
         null
       ],
@@ -546,7 +549,7 @@
         1,
         null,
         1,
-        4,
+        7,
         null,
         null
       ],
@@ -599,11 +602,9 @@
         0,
         0,
         0,
-        0,
         0
       ],
       "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/customers/transactions_controller.rb": [
-        0,
         0,
         0,
         0,
@@ -615,11 +616,9 @@
         0,
         0,
         0,
-        0,
         0
       ],
       "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/invoice_items/items_controller.rb": [
-        0,
         0,
         0,
         0,
@@ -631,11 +630,9 @@
         0,
         0,
         0,
-        0,
         0
       ],
       "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/invoices/invoice_items_controller.rb": [
-        0,
         0,
         0,
         0,
@@ -647,7 +644,6 @@
         0,
         0,
         0,
-        0,
         0
       ],
       "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/invoices/merchants_controller.rb": [
@@ -655,11 +651,9 @@
         0,
         0,
         0,
-        0,
         0
       ],
       "/Users/Josh/turing/projects/rails_engine/app/controllers/api/v1/invoices/transactions_controller.rb": [
-        0,
         0,
         0,
         0,
@@ -781,6 +775,6 @@
         0
       ]
     },
-    "timestamp": 1464827801
+    "timestamp": 1464883927
   }
 }

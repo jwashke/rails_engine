@@ -20,7 +20,7 @@ RSpec.describe Api::V1::Customers::FindController, type: :controller do
       parsed_json = JSON.parse(response.body)
 
       expect(response.status).to eq(200)
-      expect(parsed_json.first.key?("first_name")).to be true
+      expect(parsed_json.key?("first_name")).to be true
     end
   end
 end

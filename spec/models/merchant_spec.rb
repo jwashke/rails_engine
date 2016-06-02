@@ -8,28 +8,28 @@ RSpec.describe Merchant, type: :model do
   describe ".find_one_by" do
     it "can find a record by name" do
       merchant = create(:merchant)
-      found_merchant = Merchant.find_one_by(name: merchant.name).first
+      found_merchant = Merchant.find_one_by(name: merchant.name)
 
       expect(found_merchant).to eq(merchant)
     end
 
     it "can find by first name case insensitive" do
       merchant = create(:merchant)
-      found_merchant = Merchant.find_one_by(name: merchant.name.upcase).first
+      found_merchant = Merchant.find_one_by(name: merchant.name.upcase)
 
       expect(found_merchant).to eq(merchant)
     end
 
     it "can find by created at" do
       merchant = create(:merchant)
-      found_merchant = Merchant.find_one_by(created_at: merchant.created_at).first
+      found_merchant = Merchant.find_one_by(created_at: merchant.created_at)
 
       expect(found_merchant).to eq(merchant)
     end
 
     it "can find by updated at" do
       merchant = create(:merchant)
-      found_merchant = Merchant.find_one_by(updated_at: merchant.updated_at).first
+      found_merchant = Merchant.find_one_by(updated_at: merchant.updated_at)
 
       expect(found_merchant).to eq(merchant)
     end

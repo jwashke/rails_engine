@@ -15,35 +15,35 @@ RSpec.describe Invoice, type: :model do
   describe ".find_one_by" do
     it "can find a record by customer id" do
       invoice = create(:invoice)
-      found_invoice = Invoice.find_one_by(customer_id: invoice.customer_id).first
+      found_invoice = Invoice.find_one_by(customer_id: invoice.customer_id)
 
       expect(found_invoice).to eq(invoice)
     end
 
     it "can find a record by merchant id" do
       invoice = create(:invoice)
-      found_invoice = Invoice.find_one_by(merchant_id: invoice.merchant_id).first
+      found_invoice = Invoice.find_one_by(merchant_id: invoice.merchant_id)
 
       expect(found_invoice).to eq(invoice)
     end
 
     it "can find a record by status" do
       invoice = create(:invoice)
-      found_invoice = Invoice.find_one_by(status: invoice.status).first
+      found_invoice = Invoice.find_one_by(status: invoice.status)
 
       expect(found_invoice).to eq(invoice)
     end
 
     it "can find a record by created at" do
       invoice = create(:invoice)
-      found_invoice = Invoice.find_one_by(created_at: invoice.created_at).first
+      found_invoice = Invoice.find_one_by(created_at: invoice.created_at)
 
       expect(found_invoice).to eq(invoice)
     end
 
     it "can find a record by updated at" do
       invoice = create(:invoice)
-      found_invoice = Invoice.find_one_by(updated_at: invoice.updated_at).first
+      found_invoice = Invoice.find_one_by(updated_at: invoice.updated_at)
 
       expect(found_invoice).to eq(invoice)
     end

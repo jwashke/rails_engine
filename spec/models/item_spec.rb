@@ -15,35 +15,35 @@ RSpec.describe Item, type: :model do
   describe ".find_one_by" do
     it "can find a record by name" do
       item = create(:item)
-      found_Item = Item.find_one_by(name: item.name).first
+      found_Item = Item.find_one_by(name: item.name)
 
       expect(found_Item).to eq(item)
     end
 
     it "can find a record by merchant id" do
       item = create(:item)
-      found_Item = Item.find_one_by(merchant_id: item.merchant_id).first
+      found_Item = Item.find_one_by(merchant_id: item.merchant_id)
 
       expect(found_Item).to eq(item)
     end
 
     it "can find a record by description" do
       item = create(:item)
-      found_Item = Item.find_one_by(description: item.description).first
+      found_Item = Item.find_one_by(description: item.description)
 
       expect(found_Item).to eq(item)
     end
 
     it "can find a record by created at" do
       item = create(:item)
-      found_Item = Item.find_one_by(created_at: item.created_at).first
+      found_Item = Item.find_one_by(created_at: item.created_at)
 
       expect(found_Item).to eq(item)
     end
 
     it "can find a record by updated at" do
       item = create(:item)
-      found_Item = Item.find_one_by(updated_at: item.updated_at).first
+      found_Item = Item.find_one_by(updated_at: item.updated_at)
 
       expect(found_Item).to eq(item)
     end
